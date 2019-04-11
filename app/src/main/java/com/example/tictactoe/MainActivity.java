@@ -3,7 +3,6 @@
 
 package com.example.tictactoe;
 
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.graphics.Color;
 import java.util.ArrayList;
 
-import static java.lang.Math.ceil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,45 +89,15 @@ public class MainActivity extends AppCompatActivity {
     public void tileClicked(View view) {
         Button clickedButton = (Button) view;
 
-        // HOW DO YOU USE ID TO GET X AND Y COORDINATES??
-        // get id of clicked button (in instructions)
-        // int id = view.getId();
-//        int row = 0;
-//        int column = 0;
-
-//        for (int i=1; i<10; i++) {
-            // call the view of every button
-//            int resID = getResources().getIdentifier("button" + i, "id", getPackageName());
-//            Button currButton = findViewById(resID);
-
-//            String id = view.getResources().getResourceEntryName(view.getId());
-//
-//            if(id == ("button" + i)) {
-//                row = (int) Math.ceil(i / 3) - 1;
-//                System.out.println(row);
-//                column = (i % 3) - 1;
-//                System.out.println(column);
-//            }
-//
-////            if (currButton == clickedButton) {
-////                row = (int) Math.ceil(i / 3) - 1;
-////                System.out.println(row);
-//////                column = (i % 3) - 1;
-//////                System.out.println(column);
-////            }
-//        }
-
         // prevent that the tiles can be clicked twice (and unnecessarily increase the moveCounter)
         clickedButton.setClickable(false);
 
         // get coordinates of the clicked button in the grid
-        // getX and getY give positions in steps of 200.0
         float xPosition = clickedButton.getX();
-        int column = (int) xPosition / 200;
+        int column = (int) xPosition / clickedButton.getWidth();
 
         float yPosition = clickedButton.getY();
-        int row = (int) yPosition / 200;
-//        System.out.println(yPosition);
+        int row = (int) yPosition / clickedButton.getHeight();
 
         // check if player can perform their chosen move
         TileState tile = game.choose(row, column);
@@ -179,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
             if (state == GameState.PLAYER_ONE) {
                 wonBox.setText("Player One won!");
                 wonBox.setTextColor(Color.parseColor("#FF0099CC"));
-                // MAKE SURE NO MORE MOVES CAN BE PLAYED
             }
             else if (state == GameState.PLAYER_TWO) {
                 wonBox.setText("Player Two won!");
@@ -189,8 +156,6 @@ public class MainActivity extends AppCompatActivity {
                 wonBox.setText("It's a Draw!");
             }
         }
-
-//        3) draw a line through winning symbols (colour the winning symbols in player's colour
     }
 
 

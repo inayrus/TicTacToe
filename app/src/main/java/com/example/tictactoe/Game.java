@@ -108,9 +108,4 @@ public class Game implements Serializable {
             return GameState.IN_PROGRESS;
         }
     }
-
-    // create getters to restore all variables of the game class
-    public TileState[][] getBoard() {
-        return board;
-    }
 }
