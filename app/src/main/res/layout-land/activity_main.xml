@@ -1,5 +1,5 @@
 <!--
- The mobile portrait lay-out for the game of tic tac toe in Android
+ The mobile landscape lay-out for the game of tic tac toe in Android
  by Valerie Sawirja
 -->
 
@@ -15,11 +15,9 @@
 
     <TextView
         android:id="@+id/Turns"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="40dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textAlignment="viewStart" />
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/GridLayout"
@@ -106,13 +104,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/button_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
         android:onClick="resetClicked"
-        android:text="Reset" />
+        android:text="Reset"
+        android:textSize="10sp" />
 </LinearLayout>
